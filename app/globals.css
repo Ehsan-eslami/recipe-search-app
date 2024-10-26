@@ -1,11 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap'); 
+
+.league-spartan-thin {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto; 
+  font-weight: 100; 
+} 
+
+.league-spartan-hairline { 
+  font-family: "League Spartan", sans-serif; 
+  font-optical-sizing: auto; 
+  font-weight: 200; 
+} 
+
+.league-spartan-light { 
+  font-family: "League Spartan", sans-serif; 
+  font-optical-sizing: auto; 
+  font-weight: 300; 
+} 
+
+.league-spartan-normal { 
+  font-family: "League Spartan", sans-serif; 
+  font-optical-sizing: auto; 
+  font-weight: 400; 
+}
+
+.league-spartan-medium { 
+  font-family: "League Spartan", sans-serif; 
+  font-optical-sizing: auto; 
+  font-weight: 500; 
+} 
+
+.league-spartan-semibold { 
+  font-family: "League Spartan", sans-serif; 
+  font-optical-sizing: auto; 
+  font-weight: 600; 
+} 
+
+.league-spartan-bold { 
+  font-family: "League Spartan", sans-serif; 
+  font-optical-sizing: auto; 
+  font-weight: 700; 
+} 
+
+.league-spartan-extrabold { 
+  font-family: "League Spartan", sans-serif; 
+  font-optical-sizing: auto; 
+  font-weight: 800; 
+} 
+
+.league-spartan-black { 
+  font-family: "League Spartan", sans-serif; 
+  font-optical-sizing: auto; 
+  font-weight: 900; 
+} 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  background-color: rgb(196, 239, 240);
-  margin: 20px;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+	font-family: "League Spartan", sans-serif;
 }
+
+body {
+  @apply flex flex-col items-center h-screen w-screen;
+}
+.on-boarding-lunch{
+  @apply bg-[#FD5D69] w-screen h-screen flex flex-col text-white justify-center items-center 
+}
+
