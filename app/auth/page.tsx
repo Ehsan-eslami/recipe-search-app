@@ -1,4 +1,5 @@
 "use client"
+import { Login } from "@/components/auth/login";
 import { Lunch } from "@/components/auth/lunch"
 import { useEffect, useState } from "react";
 
@@ -16,7 +17,12 @@ const page = () => {
 
   return (
     <div>
-      {isProcessing ? <Lunch /> : <div>Hello</div> }  
+      {isProcessing ? <Lunch /> :
+       (
+        <div>
+          <Login />
+        </div>
+      )}  
     </div>
   )
 }
