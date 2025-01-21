@@ -21,6 +21,12 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'primary': {
+          DEFAULT: '#FFC6C9',
+          textColor: '#1C0F0D',
+          lightPink: '#FD5D69',
+          darkPink: '#EC888D' 
+        }
       },
     },
   },

@@ -12,7 +12,7 @@ export const Input = ({placeHolder, label}: InputType) => {
       {
         label === "Password" ? 
           <input 
-            className="px-4 py-2 text-center bg-red-300 text-pink-900 placeholder:text-pink-900 rounded-xl"
+            className="px-4 py-2 text-center bg-primary text-primary-textColor placeholder:text-pink-900 rounded-xl"
             title={label} 
             type="text" 
             placeholder={placeHolder}
