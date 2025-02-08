@@ -1,26 +1,37 @@
-import { Input } from "../ui/input"
+import {Input} from '../ui/input'
+import { useState } from 'react'
+import { supabase } from '@/utils/supabaseClient'
+import { useRouter } from 'next/navigation'
 
 export const Login = () => {
+  const router = useRouter()
+  const [email,  setEmail] = useState('')
+  const [password,  setPassword] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      console.error('Error signing in with password:', error);
+      return;
+    } else {
+      console.log('User signed in successfully:', data);
+      // Redirect to dashboard
+      router.push('/')
+    }
+
+  }
+
   return (
-    <div className="bg-[#fffdf9] w-screen h-screen justify-center items-center flex">
-      <div className="container h-screen">
-        <div className="w-[300px] h-screen flex justify-between	 items-center flex-col">
-          <h1 className="text-pink-900 text-xl">Login</h1>
-          <form className="flex flex-col justify-around items-center">
-            <Input label="Email" placeHolder="example@example.com"/>
-            <Input label="Password" placeHolder="Password" />
-            <button type="submit" className=" bg-red-300 text-pink-900 px-4 py-2 rounded-xl">
-              Log In
-            </button>
-            <button type="button" className=" bg-red-300 text-pink-900 px-4 py-2 rounded-xl">
-              Sign Up
-            </button>
-          </form>
-          <p className="text-xs">
-            Forget Password?
-          </p>
-        </div>
+    <form className="flex flex-col justify-around items-center gap-y-5" onSubmit={handleSubmit}>
+      <div className='flex flex-col gap-y-1'>
+        <Input label="Email" placeHolder="example@example.com" value={email} onChange={(e)=> setEmail(e.target.value)}/>
+        <Input label="Password" placeHolder="Password" value={password} onChange={(e)=> setPassword(e.target.value)} />
       </div>
-    </div>
+      <button type="submit" className=" bg-primary text-pink-900 px-4 py-2 rounded-xl">
+        Log In
+      </button>
+    </form>
   )
 }
