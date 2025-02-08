@@ -1,22 +1,26 @@
+'use client'
+
 import {Input} from '../ui/input'
 import { useState } from 'react'
 import { supabase } from '@/utils/supabaseClient'
 import { redirect, useRouter } from 'next/navigation'
 export const SignUp = () => {
   const router = useRouter()
-  const [email,  setEmail] = useState('')
-  const [password,  setPassword] = useState('')
+  const [email,  setEmail] = useState<string>('')
+  const [password,  setPassword] = useState<string>('')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { data, error } = await supabase.auth.signUp({ email, password });
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password
+    });
     if (error) {
       console.error('Error signing in with password:', error);
       return;
     } else {
       console.log('User signed in successfully:', data);
-      // Redirect to dashboard
       router.push('/')  
     }
 

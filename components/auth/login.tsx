@@ -1,3 +1,5 @@
+'use client'
+
 import {Input} from '../ui/input'
 import { useState } from 'react'
 import { supabase } from '@/utils/supabaseClient'

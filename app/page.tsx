@@ -13,7 +13,7 @@ export default function Home() {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       if (!session) {
-        router.push('/auth'); // Redirect to login if no session
+        // router.push('/auth'); // Redirect to login if no session
       }
     });
 
@@ -28,9 +28,9 @@ export default function Home() {
 
   const handleLogout = async () => {
     supabase.auth.signOut()
-    router.push('/login'); // Redirect to login after logout
+    // router.push('/auth'); // Redirect to login after logout
   }
-
+  console.log("session is the :", session);
   return (
     <>
       <div>
@@ -41,7 +41,10 @@ export default function Home() {
             <button onClick={handleLogout}>Sign Out</button>
           </div>
         ) : (
-          <p>You are not logged in!</p>
+          <div>
+            <p>You are not logged in!</p>
+            <button className="bg-primary px-2 py-1 rounded-md" onClick={() => router.push('/auth')}>Login</button>
+          </div>
         )}
       </div>
     </>

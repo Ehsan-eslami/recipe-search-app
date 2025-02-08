@@ -1,4 +1,5 @@
 "use client"
+
 import { Login } from "@/components/auth/login";
 import { Lunch } from "@/components/auth/lunch"
 import { SignUp } from "@/components/auth/signUp";
